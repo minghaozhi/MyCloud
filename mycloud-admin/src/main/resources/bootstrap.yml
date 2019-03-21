@@ -1,0 +1,18 @@
+server:
+  port: 8000
+spring:
+  application:
+    name: mycloud-admin
+  cloud:
+    consul:
+      host: 47.98.132.138
+      port: 8500
+      discovery:
+        #health-check-path: ${server.servlet.context-path}/actuator/health
+        health-check-interval: 10s
+        #注册中心使用IP地址
+        prefer-ip-address: true
+        #保证实例ID唯一
+        instance-id: ${spring.application.name}:${server.port}
+        heartbeat:
+          enabled: true

@@ -16,4 +16,8 @@ spring:
         instance-id: ${spring.application.name}:${server.port}
         heartbeat:
           enabled: true
+  redis:
+    host: 47.98.132.138
+    port: 6379
+    password: minghaozhi
 

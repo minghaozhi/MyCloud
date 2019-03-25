@@ -17,9 +17,6 @@ import java.util.Date;
 @Data
 @TableName("sys_user")
 public class User {
-    /**
-     *
-     */
     @TableId
     private Integer id;
 
@@ -49,10 +46,9 @@ public class User {
     private Integer thirdLoginId;
     private Date lastLoginTime;
 
-    public User(String userName, String password, String salt, Integer locked) {
+    public User(String userName, String password,  Integer locked) {
         this.userName = userName;
         this.password = password;
-        this.salt = salt;
         this.locked = locked;
     }
 }

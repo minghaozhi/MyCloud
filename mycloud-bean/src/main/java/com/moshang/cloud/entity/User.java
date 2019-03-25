@@ -48,4 +48,11 @@ public class User {
     private Integer locked;
     private Integer thirdLoginId;
     private Date lastLoginTime;
+
+    public User(String userName, String password, String salt, Integer locked) {
+        this.userName = userName;
+        this.password = password;
+        this.salt = salt;
+        this.locked = locked;
+    }
 }

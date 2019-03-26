@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -16,7 +17,8 @@ import java.util.Date;
  **/
 @Data
 @TableName("sys_user")
-public class User {
+public class User implements Serializable {
+    private static final long serialVersionUID = 1L;
     @TableId
     private Integer id;
 
@@ -46,7 +48,10 @@ public class User {
     private Integer thirdLoginId;
     private Date lastLoginTime;
 
-    public User(String userName, String password,  Integer locked) {
+    public User() {
+    }
+
+    public User(String userName, String password, Integer locked) {
         this.userName = userName;
         this.password = password;
         this.locked = locked;

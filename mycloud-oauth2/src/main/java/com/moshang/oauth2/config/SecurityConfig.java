@@ -1,6 +1,5 @@
 package com.moshang.oauth2.config;
 
-import com.moshang.oauth2.service.MyUserDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,9 +11,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.authentication.AnonymousAuthenticationFilter;
-import org.springframework.security.web.authentication.ForwardAuthenticationSuccessHandler;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 /**
  * @program: MyCloud
@@ -26,19 +22,17 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //    @Autowired
-//    private MyAuthenticationProvider provider;
-    @Bean
-    UserDetailsService detailsService() {
-        return new MyUserDetailService();
-    }
+//    private UserDetailsService userDetailsService;
 //    /**
 //     * 用户认证
 //     */
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
        // auth.authenticationProvider(provider);
-        auth.userDetailsService(detailsService()).passwordEncoder(bCryptPasswordEncoder());
-//      auth.inMemoryAuthentication()
+        auth.inMemoryAuthentication()
+                .withUser("admin")
+                .password(bCryptPasswordEncoder().encode("123456"))
+                .roles("read");//      auth.inMemoryAuthentication()
 //            .withUser("user").password("123456").authorities("ROLE_USER");
     }
 

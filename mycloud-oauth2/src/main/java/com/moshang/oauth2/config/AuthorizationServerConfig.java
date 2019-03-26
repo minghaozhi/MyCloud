@@ -1,6 +1,5 @@
 package com.moshang.oauth2.config;
 
-import com.moshang.oauth2.service.MyUserDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
@@ -40,8 +39,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 //    // accessToken有效期（两小时）
 //    private int accessTokenValiditySeconds = 7200;
 //    private int refreshTokenValiditySeconds = 7200;
-    @Resource
-    private MyUserDetailService userDetailsService;
+//    @Resource
+//    private UserDetailsService userDetailsService;
 
     @Autowired
     private RedisConnectionFactory redisConnectionFactory;
@@ -74,7 +73,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         endpoints.tokenStore(redisTokenStore())
-                .userDetailsService(userDetailsService)
+                //.userDetailsService(userDetailsService)
                 .authenticationManager(authenticationManager);
         endpoints.tokenServices(defaultTokenServices());
     }

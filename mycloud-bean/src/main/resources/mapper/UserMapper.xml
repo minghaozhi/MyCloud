@@ -2,7 +2,23 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.moshang.cloud.mapper.UserMapper">
-    <select id="findByUserName" resultType="User">
+    <!--&lt;!&ndash; 这儿定义一个resultMap &ndash;&gt;-->
+    <!--<resultMap type="com.moshang.cloud.entity.User" id="UserMap">-->
+        <!--<id property="id" column="id"/>-->
+        <!--<result property="userName" column="user_name"/>-->
+        <!--<result property="realName" column="real_name"/>-->
+        <!--<result property="age" column="age"/>-->
+        <!--<result property="email" column="email"/>-->
+        <!--<result property="password"  column="password"/>-->
+        <!--<result property="salt"  column="salt"/>-->
+        <!--<result property="locked" column="locked"/>-->
+        <!--<result property="phone" column="phone"/>-->
+        <!--<result property="image" column="image" />-->
+        <!--<result property="sex" column="sex" />-->
+        <!--<result property="birthday" column="birthday" />-->
+    <!--</resultMap>-->
+
+    <select id="findByUserName" resultType="com.moshang.cloud.entity.User">
         SELECT * FROM sys_user WHERE user_name= #{userName}
     </select>
 </mapper>

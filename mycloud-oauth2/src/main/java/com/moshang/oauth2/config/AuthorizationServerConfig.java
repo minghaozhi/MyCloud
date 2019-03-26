@@ -61,7 +61,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
      */
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-        clients.withClientDetails(clientDetails());
+        clients.jdbc(dataSource);
     }
     @Bean // 声明 ClientDetails实现
     public ClientDetailsService clientDetails() {

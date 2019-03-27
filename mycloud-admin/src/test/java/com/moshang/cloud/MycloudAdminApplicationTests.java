@@ -1,8 +1,7 @@
 package com.moshang.cloud;
 
-import com.moshang.cloud.entity.User;
+import com.moshang.cloud.entity.SysUser;
 import com.moshang.cloud.mapper.UserMapper;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +19,7 @@ public class MycloudAdminApplicationTests {
     @Test
     public void testSelect() {
         System.out.println(("----- selectAll method test ------"));
-        List<User> userList = userMapper.selectList(null);
+        List<SysUser> userList = userMapper.selectList(null);
         userList.forEach(System.out::println);
     }
     @Test

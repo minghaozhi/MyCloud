@@ -1,0 +1,32 @@
+zuul:
+  host:
+    connect-timeout-millis: 10000
+    socket-timeout-millis: 60000
+  routes:
+    mycloud-ouath2:
+      sensitiveHeaders:
+security:
+  oauth2:
+    resource:
+      user-info-uri:  http://mycloud-ouath2/user
+      prefer-token-info: false
+      loadBalanced: true
+##############end#####################
+####超时配置####
+ribbon:
+  ReadTimeout: 10000
+  ConnectTimeout: 10000
+  MaxAutoRetries: 1
+  MaxAutoRetriesNextServer: 2
+  eureka:
+    enabled: true
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 600000
+###超时配置###

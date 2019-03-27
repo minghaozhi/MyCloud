@@ -18,7 +18,7 @@
         <!--<result property="birthday" column="birthday" />-->
     <!--</resultMap>-->
 
-    <select id="findByUserName" resultType="com.moshang.cloud.entity.User">
+    <select id="findByUserName" resultType="com.moshang.cloud.entity.SysUser">
         SELECT * FROM sys_user WHERE user_name= #{userName}
     </select>
 </mapper>

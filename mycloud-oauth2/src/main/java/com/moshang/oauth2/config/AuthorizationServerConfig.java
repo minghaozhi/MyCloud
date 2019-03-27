@@ -1,5 +1,6 @@
 package com.moshang.oauth2.config;
 
+import com.moshang.oauth2.service.impl.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
@@ -8,6 +9,7 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.oauth2.common.exceptions.OAuth2Exception;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
@@ -15,6 +17,7 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.ClientDetailsService;
 import org.springframework.security.oauth2.provider.client.JdbcClientDetailsService;
+import org.springframework.security.oauth2.provider.error.WebResponseExceptionTranslator;
 import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
 import org.springframework.security.oauth2.provider.token.store.redis.RedisTokenStore;
 
@@ -31,11 +34,11 @@ import javax.sql.DataSource;
 @EnableAuthorizationServer
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
     @Autowired
-    @Qualifier("authenticationManagerBean")
     private AuthenticationManager authenticationManager;
     @Autowired
     private DataSource dataSource;
-
+    @Autowired
+    private UserDetailsServiceImpl userDetailsService;
 //    // accessToken有效期（两小时）
 //    private int accessTokenValiditySeconds = 7200;
 //    private int refreshTokenValiditySeconds = 7200;
@@ -67,13 +70,17 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     public ClientDetailsService clientDetails() {
         return new JdbcClientDetailsService(dataSource);
     }
+    @Bean
+    public WebResponseExceptionTranslator<OAuth2Exception> webResponseExceptionTranslator(){
+        return new MssWebResponseExceptionTranslator();
+    }
     /**
      * 这个方法主要的作用用于控制token的端点等信息
      */
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         endpoints.tokenStore(redisTokenStore())
-                //.userDetailsService(userDetailsService)
+                .userDetailsService(userDetailsService)
                 .authenticationManager(authenticationManager);
         endpoints.tokenServices(defaultTokenServices());
     }

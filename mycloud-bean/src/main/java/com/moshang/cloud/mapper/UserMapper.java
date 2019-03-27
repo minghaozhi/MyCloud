@@ -1,7 +1,7 @@
 package com.moshang.cloud.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.moshang.cloud.entity.User;
+import com.moshang.cloud.entity.SysUser;
 
 
 /**
@@ -10,6 +10,6 @@ import com.moshang.cloud.entity.User;
  * @author: moshang
  * @create: 2019-03-25 14:00
  **/
-public interface UserMapper extends BaseMapper<User> {
-    User findByUserName(String userName);
+public interface UserMapper extends BaseMapper<SysUser> {
+    SysUser findByUserName(String userName);
 }

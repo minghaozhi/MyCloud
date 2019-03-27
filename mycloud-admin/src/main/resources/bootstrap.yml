@@ -13,6 +13,6 @@ spring:
         #注册中心使用IP地址
         prefer-ip-address: true
         #保证实例ID唯一
-        instance-id: ${spring.application.name}:${server.port}
+        instance-id: ${spring.application.name}
         heartbeat:
           enabled: true

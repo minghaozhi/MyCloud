@@ -25,10 +25,8 @@ spring:
     host: 47.98.132.138
     port: 6379
     password: minghaozhi
-  security:
-    user:
-      name: admin
-      password: admin
+  main:
+    allow-bean-definition-overriding: true
 management:
   endpoints:
     web:
@@ -54,3 +52,20 @@ mybatis-plus:
     map-underscore-to-camel-case: true
     cache-enabled: false
 debug: true
+###feign 默认关闭熔断，请看HystrixFeignConfiguration
+feign:
+  hystrix:
+    enabled: true
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+ribbon:
+  ReadTimeout: 30000
+  ConnectTimeout: 60000
+  MaxAutoRetries: 0
+  MaxAutoRetriesNextServer: 1
+

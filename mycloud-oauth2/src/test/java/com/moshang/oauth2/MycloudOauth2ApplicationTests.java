@@ -1,6 +1,6 @@
 package com.moshang.oauth2;
 
-import com.moshang.cloud.entity.User;
+import com.moshang.cloud.entity.SysUser;
 import com.moshang.cloud.mapper.UserMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,7 +19,7 @@ public class MycloudOauth2ApplicationTests {
     }
     @Test
     public void select(){
-        User user=userMapper.findByUserName("admin");
+        SysUser user=userMapper.findByUserName("admin");
         System.out.println(user);
     }
 }

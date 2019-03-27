@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TestController {
 
-    @GetMapping("/user")
+    @GetMapping("/user1")
     public String testUser(){
         return "123";
     }

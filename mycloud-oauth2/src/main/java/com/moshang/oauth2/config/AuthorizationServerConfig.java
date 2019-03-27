@@ -39,11 +39,6 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     private DataSource dataSource;
     @Autowired
     private UserDetailsServiceImpl userDetailsService;
-//    // accessToken有效期（两小时）
-//    private int accessTokenValiditySeconds = 7200;
-//    private int refreshTokenValiditySeconds = 7200;
-//    @Resource
-//    private UserDetailsService userDetailsService;
 
     @Autowired
     private RedisConnectionFactory redisConnectionFactory;
@@ -64,7 +59,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
      */
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-        clients.jdbc(dataSource);
+        clients.withClientDetails(clientDetails());
     }
     @Bean // 声明 ClientDetails实现
     public ClientDetailsService clientDetails() {

@@ -47,14 +47,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .anyRequest().fullyAuthenticated()
-                .antMatchers("/oauth/token").permitAll()
+                .anyRequest().authenticated()
+                .antMatchers("/oauth/token","/user1").permitAll()
                 .and()
                 .csrf().disable();
     }
 
-//    @Override
-//    public void configure(WebSecurity web) throws Exception {
-//        web.ignoring().antMatchers("/css/**", "/js/**", "/plugins/**", "/favicon.ico");
-//    }
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        web.ignoring().antMatchers("/css/**", "/js/**", "/plugins/**", "/favicon.ico");
+    }
 }

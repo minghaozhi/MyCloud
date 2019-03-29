@@ -9,19 +9,10 @@ springcloud练手
 
 |服务名 | 父级依赖 | 模块说明|
 |----|----|----        |
-|thoth|无|为微服务提供统一的pom管理，以及通用组件|  
-|thoth-registry-server|无|注册中心,Eureka|  
-|thoth-config-server| 无|微服务统一配置中心|  
-|thoth-robot-ms|无|springcloud中的一个微服务,其中包含一个简单的增删改查demo|  
-|thoth-ai-ms|无|机器人聊天微服务，内部目前只实现了图灵机器人的调用| 
-|thoth-docs|无|相关文档，技术规范以及编码规范| 
+|mycloud-admin|无|微服务用户中心|  
+|mycloud-bean|无|微服务数据库实体和mapper操作模块|  
+|mycloud-common| 无|微服务公共模块|  
+|mycloud-getway|无|微服务网关，主要进行其他服务授权操作|  
+|mycloud-oauth2|无|微服务统一授权认证中心| 
+|mycloud-transaction|无|tx-lcn分布式事务服务端| 
 
-
-|服务名 | 父级依赖 | 模块说明|
-|----|----|----        |
-|thoth|无|为微服务提供统一的pom管理，以及通用组件|  
-|thoth-registry-server|无|注册中心,Eureka|  
-|thoth-config-server| 无|微服务统一配置中心|  
-|thoth-robot-ms|无|springcloud中的一个微服务,其中包含一个简单的增删改查demo|  
-|thoth-ai-ms|无|机器人聊天微服务，内部目前只实现了图灵机器人的调用| 
-|thoth-docs|无|相关文档，技术规范以及编码规范| 

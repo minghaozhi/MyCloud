@@ -5,7 +5,7 @@ springcloud练手
 
 
 项目说明
-#该项目是一个springcloud脚手架，主要包括如下模块
+该项目是一个springcloud脚手架，主要包括如下模块
 
 |服务名|模块说明|
 |----|----|----        |
@@ -15,8 +15,4 @@ springcloud练手
 |mycloud-getway|微服务网管，主要是进行授权认证|
 |mycloud-oauth2|微服务统一授权认证中心（服务端）|
 |mycloud-transaction|lcn分布式事务服务端|
-|列名1|列名2|
-|:---|:---|
-|列1的内容1|列2的内容1|
-|列1的内容2|列2的内容2|
 

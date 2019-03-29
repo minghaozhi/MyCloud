@@ -25,6 +25,13 @@ spring:
     host: 47.98.132.138
     port: 6379
     password: minghaozhi
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    loadbalancer:
+      retry:
+        enabled: true
 tx-lcn:
   logger:
     enabled: true

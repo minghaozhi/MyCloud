@@ -38,7 +38,7 @@ public class SecurityConfig extends ResourceServerConfigurerAdapter {
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/v2/api-docs","/mycloud-oauth2/").permitAll();
+        http.authorizeRequests().antMatchers("/v2/api-docs","/mycloud-oauth2/**").permitAll();
 
         ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry registry = http
                 .authorizeRequests();

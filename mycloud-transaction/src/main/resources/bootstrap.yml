@@ -1,18 +1,9 @@
 server:
-  port: 7090
+  port: 8070
 spring:
   application:
     name: tx-manager
   cloud:
-    consul:
-      host: 47.98.132.138
-      port: 8500
-      discovery:
-        #health-check-path: ${server.servlet.context-path}/actuator/health
-        health-check-interval: 10s
-        #注册中心使用IP地址
-        prefer-ip-address: true
-        #保证实例ID唯一
-        instance-id: ${spring.application.name}:${server.port}
-        heartbeat:
-          enabled: true
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848

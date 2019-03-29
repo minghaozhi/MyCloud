@@ -1,7 +1,6 @@
 package com.moshang.oauth2.service;
 
 import com.moshang.cloud.entity.Role;
-import com.moshang.oauth2.config.FeignOauth2RequestInterceptor;
 import com.moshang.oauth2.service.impl.RoleServiceImpl;
 import com.moshang.util.Result;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -15,7 +14,7 @@ import java.util.List;
  * @author: moshang
  * @create: 2019-03-27 13:43
  **/
-@FeignClient(name = "mycloud-admin",fallback = RoleServiceImpl.class,configuration = FeignOauth2RequestInterceptor.class)
+@FeignClient(name = "mycloud-admin",fallback = RoleServiceImpl.class)
 public interface RoleService {
     @GetMapping("role/getRoleByUserId/{userId}")
     Result<List<Role>> getRoleByUserId(Integer id);

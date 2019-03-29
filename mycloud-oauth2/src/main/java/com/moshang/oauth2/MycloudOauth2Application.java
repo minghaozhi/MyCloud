@@ -15,7 +15,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  **/
 @SpringBootApplication
 @EnableDiscoveryClient
-@MapperScan("com.moshang.cloud.mapper")
+//@MapperScan("com.moshang.cloud.mapper")
 @EnableFeignClients
 @EnableHystrix
 public class MycloudOauth2Application {

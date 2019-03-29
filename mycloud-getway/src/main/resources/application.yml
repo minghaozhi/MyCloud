@@ -1,14 +1,23 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    loadbalancer:
+      retry:
+        enabled: true
+
 zuul:
   host:
     connect-timeout-millis: 10000
     socket-timeout-millis: 60000
   routes:
-    mycloud-ouath2:
+    mycloud-oauth2:
       sensitiveHeaders:
 security:
   oauth2:
     resource:
-      user-info-uri:  http://mycloud-ouath2/user
+      user-info-uri:  http://mycloud-oauth2/user
       prefer-token-info: false
       loadBalanced: true
 ##############end#####################
@@ -18,6 +27,9 @@ ribbon:
   ConnectTimeout: 10000
   MaxAutoRetries: 1
   MaxAutoRetriesNextServer: 2
+  eager-load:
+    enabled: true
+    clients:
   eureka:
     enabled: true
 hystrix:

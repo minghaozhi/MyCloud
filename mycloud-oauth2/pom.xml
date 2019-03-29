@@ -11,6 +11,7 @@
     <artifactId>mycloud-oauth2</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>mycloud-oauth2</name>
+    <packaging>jar</packaging>
     <description>统一认证授权中心</description>
 
     <properties>
@@ -36,7 +37,11 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-consul-discovery</artifactId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

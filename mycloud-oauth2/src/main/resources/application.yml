@@ -21,6 +21,13 @@ spring:
       ## 数据库连接超时时间,默认30秒，即30000
       connection-timeout: 30000
       connection-test-query: SELECT 1
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    loadbalancer:
+      retry:
+        enabled: true
   redis:
     host: 47.98.132.138
     port: 6379
@@ -68,4 +75,14 @@ ribbon:
   ConnectTimeout: 60000
   MaxAutoRetries: 0
   MaxAutoRetriesNextServer: 1
-
+  eager-load:
+    enabled: true
+    clients:
+    eureka:
+      enabled: true
+logging:
+  config: classpath:logback.xml
+  level:
+    org:
+      springframework:
+        web: info

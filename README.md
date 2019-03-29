@@ -7,7 +7,7 @@ springcloud练手
 项目说明
 该项目是一个springcloud脚手架，主要包括如下模块
 
-|服务名|模块说明|
+| 服务名 | 模块说明 |
 |----|----|----        |
 |mycloud-admin|微服务的后台管理|
 |mycloud-bean|存放微服务数据库持久层的实体类的mapper|

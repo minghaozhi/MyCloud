@@ -5,6 +5,7 @@ import com.moshang.oauth2.service.impl.UserServiceImpl;
 import com.moshang.util.Result;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 /**
  * @program: MyCloud
@@ -15,5 +16,5 @@ import org.springframework.web.bind.annotation.GetMapping;
 @FeignClient(name = "mycloud-admin",fallback = UserServiceImpl.class)
 public interface UserService {
     @GetMapping("user/findByUsername/{username}")
-    Result<UserVo> findByUsername(String username);
+    Result<UserVo> findByUsername(@PathVariable("username")String username);
 }

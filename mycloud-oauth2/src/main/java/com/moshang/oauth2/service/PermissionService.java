@@ -5,6 +5,7 @@ import com.moshang.oauth2.service.impl.PermissionServiceImpl;
 import com.moshang.util.Result;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -17,5 +18,5 @@ import java.util.List;
 @FeignClient(name = "mycloud-admin",fallback = PermissionServiceImpl.class)
 public interface PermissionService {
     @GetMapping("permission/getRolePermission/{roleId}")
-    Result<List<Menu>> getRolePermission(Integer id);
+    Result<List<Menu>> getRolePermission(@PathVariable("roleId")Integer id);
 }

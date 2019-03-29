@@ -5,6 +5,7 @@ import com.moshang.oauth2.service.impl.RoleServiceImpl;
 import com.moshang.util.Result;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -17,5 +18,5 @@ import java.util.List;
 @FeignClient(name = "mycloud-admin",fallback = RoleServiceImpl.class)
 public interface RoleService {
     @GetMapping("role/getRoleByUserId/{userId}")
-    Result<List<Role>> getRoleByUserId(Integer id);
+    Result<List<Role>> getRoleByUserId(@PathVariable("userId") Integer id);
 }

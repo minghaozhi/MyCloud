@@ -37,8 +37,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     private AuthenticationManager authenticationManager;
     @Autowired
     private DataSource dataSource;
-    @Autowired
-    private UserDetailsServiceImpl userDetailsService;
+    @Resource
+    private UserDetailsService userDetailsService;
 
     @Autowired
     private RedisConnectionFactory redisConnectionFactory;

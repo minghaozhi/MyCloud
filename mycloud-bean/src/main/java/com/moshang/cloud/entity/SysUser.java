@@ -12,25 +12,25 @@ public class SysUser {
     @TableId
     private Integer id;
 
-    private String avatar;
+    private String image;
 
-    private String username;
+    private String userName;
+    private String realName;
 
     private String password;
 
     private String salt;
-
-    private String name;
+    private String email;
 
     private Date birthday;
 
-    private Integer sex;
+    private String sex;
+    private Integer age;
 
-    private String email;
 
     private String phone;
 
-    private Integer status;
+    private Integer enable;
 
     private Date createTime;
     private Date updateTime;

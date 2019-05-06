@@ -71,7 +71,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
                 }
             }
         }
-        User user = new User(userVo.getUsername(), userVo.getPassword(),
+        User user = new User(userVo.getUserName(), userVo.getPassword(),
                 enabled, accountNonExpired, credentialsNonExpired, accountNonLocked, grantedAuthorities);
         return user;
     }

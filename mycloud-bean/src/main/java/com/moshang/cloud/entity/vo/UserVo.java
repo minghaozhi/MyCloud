@@ -20,15 +20,15 @@ public class UserVo implements Serializable {
 
     private Integer id;
 
-    private String avatar;
+    private String image;
 
-    private String username;
+    private String userName;
 
     private String password;
 
     private String salt;
 
-    private String name;
+    private String realName;
 
     private Date birthday;
 

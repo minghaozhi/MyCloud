@@ -1,13 +1,13 @@
 package com.moshang.cloud.controller;
 
 import com.moshang.cloud.entity.SysUser;
+import com.moshang.cloud.service.RoleService;
 import com.moshang.cloud.service.UserService;
 import com.moshang.util.Result;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
 
 /**
  * @program: MyCloud
@@ -21,6 +21,8 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+    @Autowired
+    private RoleService roleService;
 
     @GetMapping("findByUsername/{username}")
     public Result findByUsername(@PathVariable("username") String username){
@@ -29,5 +31,17 @@ public class UserController {
             return Result.failure(100,"用户不存在");
         }
         return Result.ok().setData(user);
+    }
+    @GetMapping("findByName")
+    public Result findByName(@RequestParam("username") String username){
+        SysUser user = userService.findByName(username);
+        if (user == null){
+            return Result.failure(100,"用户不存在");
+        }
+        HashMap map=new HashMap();
+        map.put("name",user.getUserName());
+        map.put("avatar",user.getImage());
+        map.put("roles",roleService.getRoleByUserId(user.getId()));
+        return Result.ok().setData(map);
     }
 }

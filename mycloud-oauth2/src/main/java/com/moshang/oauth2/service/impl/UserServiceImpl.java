@@ -19,6 +19,12 @@ public class UserServiceImpl implements UserService {
     @Override
     public Result<UserVo> findByUsername(String username) {
         log.info("调用{}失败","findByUsername");
-        return Result.failure(100,"调用findByUsername接口失败"+username);
+        return Result.failure(500,"调用findByUsername接口失败"+username);
+    }
+
+    @Override
+    public Result findByName(String username) {
+        log.info("调用{}失败","findByName");
+        return Result.failure(500,"调用findByName接口失败"+username);
     }
 }

@@ -19,6 +19,6 @@
     <!--</resultMap>-->
 
     <select id="findByUserName" resultType="com.moshang.cloud.entity.SysUser">
-        SELECT * FROM sys_user WHERE user_name= #{userName}
+        SELECT  * FROM sys_user WHERE user_name= #{userName}
     </select>
 </mapper>

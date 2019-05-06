@@ -1,5 +1,8 @@
 package com.moshang.oauth2.config;
 
+import com.moshang.cloud.constant.SecurityConstants;
+import com.moshang.oauth2.handler.MyAuthenticationFailHandler;
+import com.moshang.oauth2.handler.MyAuthenticationSuccessHandler;
 import com.moshang.oauth2.service.impl.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -14,6 +17,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationFailureHandler;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
 /**
  * @program: MyCloud
@@ -27,6 +32,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserDetailsServiceImpl userDetailsService;
+    @Autowired
+    private MyAuthenticationSuccessHandler authenticationSuccessHandler;
+    @Autowired
+    private MyAuthenticationFailHandler authenticationFailureHandler;
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
@@ -49,6 +58,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .anyRequest().authenticated()
                 .antMatchers("/oauth/token").permitAll()
+                .and()
+                .formLogin()
+                .loginPage(SecurityConstants.LOGIN_PAGE)
+                .loginProcessingUrl(SecurityConstants.OAUTH_LOGIN_PRO_URL)
+                .successHandler(authenticationSuccessHandler )
+                .failureHandler(authenticationFailureHandler)
                 .and()
                 .csrf().disable();
     }

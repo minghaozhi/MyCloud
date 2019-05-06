@@ -79,6 +79,11 @@
             <artifactId>mybatis-plus-boot-starter</artifactId>
             <version>${mybatisPlus.version}</version>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.baomidou</groupId>-->
+<!--            <artifactId>mybatis-plus</artifactId>-->
+<!--            <version>${mybatisPlus.version}</version>-->
+<!--        </dependency>-->
         <!--swagger ui-->
         <dependency>
             <groupId>io.springfox</groupId>

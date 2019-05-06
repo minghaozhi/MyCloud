@@ -11,4 +11,6 @@ import com.moshang.cloud.entity.SysUser;
  **/
 public interface UserService extends IService<SysUser> {
     SysUser findByUsername(String username);
+
+    SysUser findByName(String username);
 }

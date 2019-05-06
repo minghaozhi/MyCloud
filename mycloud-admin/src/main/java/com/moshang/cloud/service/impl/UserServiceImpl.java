@@ -1,5 +1,7 @@
 package com.moshang.cloud.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.moshang.cloud.entity.SysUser;
 import com.moshang.cloud.mapper.UserMapper;
@@ -24,5 +26,13 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, SysUser> implements
     @Override
     public SysUser findByUsername(String username) {
         return userMapper.findByUserName(username);
+    }
+
+    @Override
+    public SysUser findByName(String username) {
+        QueryWrapper<SysUser> wrapper=new QueryWrapper<>();
+        wrapper.eq("user_name",username);
+        wrapper.eq("enable",1);
+        return userMapper.selectOne(wrapper);
     }
 }

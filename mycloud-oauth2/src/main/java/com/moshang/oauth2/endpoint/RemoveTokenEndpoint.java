@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
+ * 退出登录（清除token）
  * @author xww
  * Created on 2019/5/21.
  */

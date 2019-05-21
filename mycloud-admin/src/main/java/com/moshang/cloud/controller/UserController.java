@@ -1,5 +1,6 @@
 package com.moshang.cloud.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.moshang.cloud.entity.SysUser;
 import com.moshang.cloud.service.RoleService;
 import com.moshang.cloud.service.UserService;
@@ -26,7 +27,7 @@ public class UserController {
 
     @GetMapping("findByUsername/{username}")
     public Result findByUsername(@PathVariable("username") String username){
-        SysUser user = userService.findByUsername(username);
+        JSONObject user = userService.findByUsername(username);
         if (user == null){
             return Result.failure(100,"用户不存在");
         }

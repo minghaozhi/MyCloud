@@ -1,5 +1,6 @@
 package com.moshang.cloud.mapper;
 
+import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.moshang.cloud.entity.SysUser;
 

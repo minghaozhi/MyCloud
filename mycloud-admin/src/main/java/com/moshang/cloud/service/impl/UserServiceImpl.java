@@ -1,5 +1,6 @@
 package com.moshang.cloud.service.impl;
 
+import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -24,8 +25,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, SysUser> implements
 
 
     @Override
-    public SysUser findByUsername(String username) {
-        return userMapper.findByUserName(username);
+    public JSONObject findByUsername(String username) {
+        return  JSONObject.parseObject(JSONObject.toJSON(userMapper.findByUserName(username)).toString());
     }
 
     @Override

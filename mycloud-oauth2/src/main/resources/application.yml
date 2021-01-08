@@ -29,9 +29,9 @@ spring:
       retry:
         enabled: true
   redis:
-    host: 127.0.0.1
+    host: 47.98.132.138
     port: 6379
-#    password: minghaozhi
+    password: minghaozhi
   main:
     allow-bean-definition-overriding: true
 management:

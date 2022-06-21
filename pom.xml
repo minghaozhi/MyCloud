@@ -26,7 +26,7 @@
         <txlcn.version>5.0.2.RELEASE</txlcn.version>
         <lombok.version>1.18.6</lombok.version>
         <spring-cloud.version>Greenwich.SR1</spring-cloud.version>
-        <mysql.version>5.1.47</mysql.version>
+        <mysql.version>8.0.28</mysql.version>
         <mybatisPlus.version>3.0.6</mybatisPlus.version>
         <swagger2.version>2.9.2</swagger2.version>
         <spring-cloud-alibaba.version>0.2.1.RELEASE</spring-cloud-alibaba.version>
